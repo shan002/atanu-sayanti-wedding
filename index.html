@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f2ea">
+
+  <title>Atanu & Sayanti — Wedding Invitation</title>
+  <meta name="description" content="You are invited to celebrate the wedding of Atanu Bhattacharjee and Sayanti Bhattacharjee on 13 December 2026.">
+
+  <!-- AFTER VERCEL DEPLOYS THE SITE, replace YOUR-PROJECT below with the real Vercel project name. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Atanu & Sayanti — Wedding Invitation">
+  <meta property="og:description" content="Wedding • 13 December 2026 | Reception • 18 December 2026">
+  <meta property="og:url" content="https://YOUR-PROJECT.vercel.app/">
+  <meta property="og:image" content="https://YOUR-PROJECT.vercel.app/assets/share-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wedding invitation for Atanu Bhattacharjee and Sayanti Bhattacharjee">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atanu & Sayanti — Wedding Invitation">
+  <meta name="twitter:description" content="Wedding • 13 December 2026 | Reception • 18 December 2026">
+  <meta name="twitter:image" content="https://YOUR-PROJECT.vercel.app/assets/share-preview.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:#29382f; --muted:#70766f; --cream:#f7f2ea; --paper:#fffdf9;
+      --sage:#748a78; --sage-dark:#465e4c; --gold:#b79258;
+      --line:rgba(41,56,47,.14); --shadow:0 22px 65px rgba(49,48,40,.13);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:radial-gradient(circle at 10% 0%,rgba(183,146,88,.09),transparent 28rem),radial-gradient(circle at 100% 35%,rgba(116,138,120,.1),transparent 30rem),var(--cream);font-family:"Montserrat",system-ui,sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden}
+    body.locked{overflow:hidden} img{display:block;width:100%} button,a{font:inherit} a{color:inherit}
+    .section{width:min(1080px,calc(100% - 36px));margin:auto;padding:88px 0}.center{text-align:center}
+    .eyebrow{margin:0 0 .7rem;color:var(--gold);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+    .section-title{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.7rem,7vw,4.8rem);font-weight:500;line-height:.95}
+    .section-copy{max-width:650px;margin:1.2rem auto 0;color:var(--muted)}
+
+    /* Opening envelope */
+    .opening{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.55),transparent 20rem),linear-gradient(145deg,#dbe3dc,#bfcfc2);transition:opacity .8s ease,visibility .8s ease}
+    .opening.opened{opacity:0;visibility:hidden;pointer-events:none}.opening-inner{text-align:center}.opening-small{margin-bottom:22px;color:rgba(41,56,47,.72);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+    .envelope{position:relative;width:min(330px,82vw);aspect-ratio:1.45;border:0;padding:0;cursor:pointer;background:#f1e8d9;box-shadow:0 30px 80px rgba(41,56,47,.25);border-radius:3px;transition:transform .3s ease;overflow:visible}.envelope:hover{transform:translateY(-4px)}
+    .envelope:before,.envelope:after{content:"";position:absolute;inset:0}.envelope:before{z-index:2;clip-path:polygon(0 0,50% 57%,100% 0);background:#ded2bf;transform-origin:top;transition:transform .9s cubic-bezier(.2,.75,.25,1)}.envelope:after{z-index:1;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);background:linear-gradient(135deg,#f7efe4,#e9decc)}
+    .envelope.is-opening:before{transform:rotateX(180deg)}.seal{position:absolute;z-index:4;left:50%;top:49%;display:grid;place-items:center;width:74px;height:74px;transform:translate(-50%,-50%);border-radius:50%;color:#f7efe4;background:radial-gradient(circle at 35% 30%,#6f8b79,#47624f 70%);border:5px double rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(41,56,47,.25);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.35rem;font-weight:600;letter-spacing:.08em;transition:.55s}.envelope.is-opening .seal{opacity:0;transform:translate(-50%,-50%) scale(.65)}
+    .opening-names{margin:24px 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:2rem;font-weight:500}.tap{margin-top:8px;color:rgba(41,56,47,.62);font-size:.72rem;letter-spacing:.08em}
+
+    /* Hero */
+    .hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;color:#fff;background:#435448}.hero-bg{position:absolute;inset:0;background:#435448 url("assets/hero.jpg") center 38%/cover no-repeat;transform:scale(1.02)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(21,36,28,.46),rgba(21,36,28,.14) 38%,rgba(21,36,28,.62))}
+    .nav{position:absolute;z-index:10;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;width:min(1180px,calc(100% - 36px));margin:auto;padding:22px 0;color:#fff}.nav-mark{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.55rem;font-weight:600;text-decoration:none}.nav-links{display:flex;gap:22px}.nav-links a{font-size:.72rem;font-weight:500;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+    .hero-content{position:relative;z-index:2;width:min(950px,calc(100% - 36px));padding-top:80px;text-align:center}.hero-kicker{margin:0 0 18px;font-size:.73rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase}.hero h1{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(4.2rem,15vw,9.5rem);font-weight:500;line-height:.72;text-shadow:0 6px 35px rgba(0,0,0,.16)}.hero-amp{display:block;margin:.18em 0 .08em;font-size:.46em;font-style:italic;font-weight:400}.hero-date{margin:38px 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.3rem,4vw,1.8rem);letter-spacing:.08em}.scroll-cue{position:absolute;z-index:3;bottom:28px;left:50%;transform:translateX(-50%);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;opacity:.8;white-space:nowrap}
+
+    /* Welcome */
+    .intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,7vw,90px);align-items:center}.portrait-shell{position:relative;max-width:470px;aspect-ratio:.78;margin:auto;border-radius:180px 180px 8px 8px;background:linear-gradient(145deg,#718775,#d9c9b3);box-shadow:var(--shadow);overflow:hidden}.portrait-shell:before{content:"A & S";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.75);font-family:"Cormorant Garamond",Georgia,serif;font-size:4rem}.portrait{position:relative;height:100%;object-fit:cover}.intro-text h2{margin:0 0 18px;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:500;line-height:.95}.intro-text p{color:var(--muted)}.signature{margin-top:26px!important;color:var(--sage-dark)!important;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.8rem;font-style:italic}
+
+    /* Countdown */
+    .countdown-section{width:min(1180px,calc(100% - 24px));margin:28px auto;padding:64px 24px;color:#fff;background:linear-gradient(rgba(48,70,56,.9),rgba(48,70,56,.9)),url("assets/gallery-1.jpg") center/cover;border-radius:26px;box-shadow:var(--shadow);text-align:center}.countdown-section .eyebrow{color:#e5c996}.countdown{display:grid;grid-template-columns:repeat(4,minmax(70px,130px));justify-content:center;gap:14px;margin-top:35px}.time-box{padding:17px 8px;border:1px solid rgba(255,255,255,.22);border-radius:16px;background:rgba(255,255,255,.07);backdrop-filter:blur(6px)}.time-value{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2rem,7vw,3.5rem);line-height:1}.time-label{display:block;margin-top:8px;font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+
+    /* Events */
+    .events{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:42px}.event-card{position:relative;padding:clamp(28px,5vw,48px);overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 15px 45px rgba(50,48,40,.06);text-align:left}.event-card:after{content:"❦";position:absolute;right:20px;bottom:-18px;color:rgba(116,138,120,.11);font-size:8rem;transform:rotate(-18deg)}.event-card h3{position:relative;z-index:1;margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:2.5rem;font-weight:500;line-height:1}.event-date{position:relative;z-index:1;margin:16px 0 3px;color:var(--sage-dark);font-size:.84rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}.event-details{position:relative;z-index:1;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.event-details p{margin:.25rem 0}.event-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.more-events{margin:24px 0 0;color:var(--muted);font-size:.85rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 18px;border:1px solid var(--sage-dark);border-radius:999px;color:#fff;background:var(--sage-dark);cursor:pointer;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.secondary{color:var(--sage-dark);background:transparent}.btn[hidden]{display:none}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-template-rows:270px 270px;gap:12px;margin-top:42px}.gallery button{position:relative;padding:0;overflow:hidden;border:0;border-radius:14px;background:linear-gradient(145deg,#718775,#d8c8b0);cursor:zoom-in}.gallery button:before{content:"A & S";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.7);font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem}.gallery button:first-child{grid-row:1/span 2}.gallery button:last-child{grid-column:2/span 2}.gallery img{position:relative;height:100%;object-fit:cover;transition:transform .45s ease}.gallery button:hover img{transform:scale(1.035)}
+
+    /* RSVP */
+    .rsvp{width:min(900px,calc(100% - 36px));margin:35px auto 100px;padding:clamp(42px,8vw,82px) 24px;color:#fff;background:var(--sage-dark);border-radius:28px;box-shadow:var(--shadow);text-align:center}.rsvp .eyebrow{color:#e5c996}.rsvp p{max-width:600px;margin:16px auto 0;color:rgba(255,255,255,.78)}.rsvp-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}.rsvp .btn{color:var(--sage-dark);background:#fff;border-color:#fff}.rsvp .btn.secondary{color:#fff;background:transparent}footer{padding:0 20px 44px;color:var(--muted);text-align:center;font-size:.72rem}
+    .music-btn{position:fixed;z-index:20;right:18px;bottom:18px;width:48px;height:48px;border:0;border-radius:50%;color:#fff;background:var(--sage-dark);box-shadow:0 10px 30px rgba(41,56,47,.22);cursor:pointer}.lightbox{position:fixed;z-index:1000;inset:0;display:none;place-items:center;padding:26px;background:rgba(15,22,18,.92)}.lightbox.show{display:grid}.lightbox img{max-width:min(1100px,95vw);max-height:88vh;width:auto;object-fit:contain;border-radius:8px}.lightbox-close{position:absolute;top:18px;right:20px;border:0;color:#fff;background:none;cursor:pointer;font-size:2rem}
+
+    @media(max-width:760px){.section{padding:68px 0}.nav-links{display:none}.intro-grid{grid-template-columns:1fr}.intro-text{text-align:center}.portrait-shell{width:min(84vw,420px)}.events{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:260px 180px 220px}.gallery button:first-child{grid-column:1/span 2;grid-row:auto}.gallery button:last-child{grid-column:1/span 2}}
+    @media(max-width:480px){.countdown{grid-template-columns:repeat(4,1fr);gap:7px}.time-box{padding:14px 3px;border-radius:12px}.hero h1{font-size:clamp(4rem,22vw,6.3rem)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+  </style>
+</head>
+
+<body class="locked">
+  <div class="opening" id="opening">
+    <div class="opening-inner">
+      <div class="opening-small">You are invited</div>
+      <button class="envelope" id="openInvitation" aria-label="Open wedding invitation"><span class="seal">A&S</span></button>
+      <p class="opening-names">Atanu & Sayanti</p>
+      <div class="tap">Tap the seal to open</div>
+    </div>
+  </div>
+
+  <header class="hero" id="home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <nav class="nav">
+      <a href="#home" class="nav-mark">A&S</a>
+      <div class="nav-links"><a href="#story">Welcome</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#rsvp">RSVP</a></div>
+    </nav>
+    <div class="hero-content">
+      <p class="hero-kicker">Together with our families</p>
+      <h1>Atanu<span class="hero-amp">&</span>Sayanti</h1>
+      <p class="hero-date">13 December 2026</p>
+    </div>
+    <div class="scroll-cue">Scroll to celebrate ↓</div>
+  </header>
+
+  <main>
+    <section class="section" id="story">
+      <div class="intro-grid">
+        <div class="portrait-shell"><img class="portrait" src="assets/couple.jpg" alt="Atanu and Sayanti" onerror="this.style.display='none'"></div>
+        <div class="intro-text">
+          <p class="eyebrow">A new chapter</p>
+          <h2>With joyful hearts, we invite you.</h2>
+          <p>It would mean the world to us to have you by our side as we celebrate our wedding with the people we love most.</p>
+          <p>Please join us for the celebrations of <strong>Atanu Bhattacharjee</strong> and <strong>Sayanti Bhattacharjee</strong>.</p>
+          <p class="signature">Atanu & Sayanti</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="countdown-section">
+      <p class="eyebrow">Counting down</p>
+      <h2 class="section-title">Until we say “I do”</h2>
+      <div class="countdown" id="countdown">
+        <div class="time-box"><span class="time-value" id="days">00</span><span class="time-label">Days</span></div>
+        <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-label">Hours</span></div>
+        <div class="time-box"><span class="time-value" id="minutes">00</span><span class="time-label">Minutes</span></div>
+        <div class="time-box"><span class="time-value" id="seconds">00</span><span class="time-label">Seconds</span></div>
+      </div>
+    </section>
+
+    <section class="section center" id="events">
+      <p class="eyebrow">Save the dates</p>
+      <h2 class="section-title">Celebrations</h2>
+      <p class="section-copy">The remaining ceremonies, times and venues will be added as soon as they are finalized.</p>
+      <div class="events" id="eventList"></div>
+      <p class="more-events">More celebration details coming soon.</p>
+    </section>
+
+    <section class="section center" id="gallery">
+      <p class="eyebrow">Our moments</p>
+      <h2 class="section-title">A little bit of us</h2>
+      <p class="section-copy">The couple’s photographs will appear here.</p>
+      <div class="gallery">
+        <button type="button" data-full="assets/gallery-1.jpg"><img src="assets/gallery-1.jpg" alt="Atanu and Sayanti photo 1" onerror="this.style.display='none'"></button>
+        <button type="button" data-full="assets/gallery-2.jpg"><img src="assets/gallery-2.jpg" alt="Atanu and Sayanti photo 2" onerror="this.style.display='none'"></button>
+        <button type="button" data-full="assets/gallery-3.jpg"><img src="assets/gallery-3.jpg" alt="Atanu and Sayanti photo 3" onerror="this.style.display='none'"></button>
+        <button type="button" data-full="assets/gallery-4.jpg"><img src="assets/gallery-4.jpg" alt="Atanu and Sayanti photo 4" onerror="this.style.display='none'"></button>
+      </div>
+    </section>
+
+    <section class="rsvp" id="rsvp">
+      <p class="eyebrow">We hope you can join us</p>
+      <h2 class="section-title">Celebrate with us</h2>
+      <p id="rsvpText">RSVP details will be added here once the contact number is finalized.</p>
+      <div class="rsvp-actions">
+        <a class="btn" id="whatsappRsvp" href="#" target="_blank" rel="noopener" hidden>RSVP on WhatsApp</a>
+        <button class="btn secondary" id="shareInvitation" type="button">Share invitation</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Made with love for Atanu & Sayanti • 2026</footer>
+  <button class="music-btn" id="musicButton" type="button" aria-label="Toggle background music" hidden>♪</button>
+  <audio id="backgroundMusic" loop preload="none"></audio>
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose" type="button">×</button><img id="lightboxImage" alt=""></div>
+
+  <script>
+    /* ==========================================================
+       EDIT ONLY THIS SECTION when you get more wedding details.
+       ========================================================== */
+    const wedding = {
+      countdownDate: "2026-12-13T00:00:00",
+
+      events: [
+        {
+          title: "Wedding",
+          date: "Sunday, 13 December 2026",
+          time: "Time to be announced",
+          venue: "Venue to be announced",
+          address: "",
+          mapUrl: ""
+        },
+        {
+          title: "Reception",
+          date: "Friday, 18 December 2026",
+          time: "Time to be announced",
+          venue: "Venue to be announced",
+          address: "",
+          mapUrl: ""
+        }
+        // Add more ceremonies here later. I can give you the exact blocks.
+      ],
+
+      // Digits only with country code. Example Bangladesh: 88017XXXXXXXX
+      whatsappNumber: "",
+      whatsappMessage: "Hello! I would like to RSVP for Atanu and Sayanti's wedding. My name is ____ and the number of guests is ____.",
+
+      // Optional: put a file at assets/music.mp3 and set this to "assets/music.mp3"
+      musicFile: ""
+    };
+
+    /* Normally, do not edit anything below this line. */
+    const opening = document.getElementById("opening");
+    const openInvitation = document.getElementById("openInvitation");
+
+    openInvitation.addEventListener("click", () => {
+      openInvitation.classList.add("is-opening");
+      setTimeout(() => {
+        opening.classList.add("opened");
+        document.body.classList.remove("locked");
+        startMusic();
+      }, 650);
+    });
+
+    function renderEvents() {
+      const list = document.getElementById("eventList");
+      wedding.events.forEach(event => {
+        const card = document.createElement("article");
+        card.className = "event-card";
+        const mapButton = event.mapUrl ? `<a class="btn secondary" href="${event.mapUrl}" target="_blank" rel="noopener">Open map</a>` : "";
+        card.innerHTML = `
+          <p class="eyebrow">You are invited</p>
+          <h3>${event.title}</h3>
+          <p class="event-date">${event.date}</p>
+          <div class="event-details">
+            <p><strong>${event.time}</strong></p>
+            <p>${event.venue}</p>
+            ${event.address ? `<p>${event.address}</p>` : ""}
+          </div>
+          <div class="event-actions">${mapButton}</div>`;
+        list.appendChild(card);
+      });
+    }
+
+    function updateCountdown() {
+      const target = new Date(wedding.countdownDate).getTime();
+      let diff = target - Date.now();
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = '<div class="time-box" style="grid-column:1/-1"><span class="time-value">Today!</span><span class="time-label">The celebration has arrived</span></div>';
+        return;
+      }
+      const day = 86400000, hour = 3600000, minute = 60000;
+      document.getElementById("days").textContent = Math.floor(diff / day);
+      diff %= day;
+      document.getElementById("hours").textContent = String(Math.floor(diff / hour)).padStart(2, "0");
+      diff %= hour;
+      document.getElementById("minutes").textContent = String(Math.floor(diff / minute)).padStart(2, "0");
+      diff %= minute;
+      document.getElementById("seconds").textContent = String(Math.floor(diff / 1000)).padStart(2, "0");
+    }
+
+    function setupRsvp() {
+      if (!wedding.whatsappNumber) return;
+      const button = document.getElementById("whatsappRsvp");
+      button.href = `https://wa.me/${wedding.whatsappNumber}?text=${encodeURIComponent(wedding.whatsappMessage)}`;
+      button.hidden = false;
+      document.getElementById("rsvpText").textContent = "Please let us know if you’ll be celebrating with us.";
+    }
+
+    const music = document.getElementById("backgroundMusic");
+    const musicButton = document.getElementById("musicButton");
+    function setupMusic() {
+      if (!wedding.musicFile) return;
+      music.src = wedding.musicFile;
+      musicButton.hidden = false;
+    }
+    async function startMusic() {
+      if (!wedding.musicFile) return;
+      try { await music.play(); musicButton.textContent = "Ⅱ"; } catch (_) {}
+    }
+    musicButton.addEventListener("click", async () => {
+      if (music.paused) { await music.play(); musicButton.textContent = "Ⅱ"; }
+      else { music.pause(); musicButton.textContent = "♪"; }
+    });
+
+    document.getElementById("shareInvitation").addEventListener("click", async () => {
+      const data = { title:"Atanu & Sayanti — Wedding Invitation", text:"You’re invited to celebrate the wedding of Atanu & Sayanti on 13 December 2026.", url:window.location.href };
+      if (navigator.share) { try { await navigator.share(data); } catch (_) {} }
+      else {
+        await navigator.clipboard.writeText(window.location.href);
+        const button = document.getElementById("shareInvitation"), old = button.textContent;
+        button.textContent = "Link copied";
+        setTimeout(() => button.textContent = old, 1800);
+      }
+    });
+
+    const lightbox = document.getElementById("lightbox"), lightboxImage = document.getElementById("lightboxImage");
+    document.querySelectorAll(".gallery button").forEach(button => {
+      button.addEventListener("click", () => {
+        const image = button.querySelector("img");
+        if (!image.complete || image.naturalWidth === 0) return;
+        lightboxImage.src = button.dataset.full;
+        lightboxImage.alt = image.alt;
+        lightbox.classList.add("show");
+        document.body.classList.add("locked");
+      });
+    });
+    function closeLightbox() { lightbox.classList.remove("show"); document.body.classList.remove("locked"); }
+    document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+    renderEvents();
+    setupRsvp();
+    setupMusic();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
