@@ -12,15 +12,15 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Atanu & Sayanti — Wedding Invitation">
   <meta property="og:description" content="Wedding • 13 December 2026 | Reception • 18 December 2026">
-  <meta property="og:url" content="https://YOUR-PROJECT.vercel.app/">
-  <meta property="og:image" content="https://YOUR-PROJECT.vercel.app/assets/share-preview.png">
+  <meta property="og:url" content="https://atanu-sayanti-wedding.vercel.app/">
+  <meta property="og:image" content="https://atanu-sayanti-wedding.vercel.app/assets/share-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Wedding invitation for Atanu Bhattacharjee and Sayanti Bhattacharjee">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Atanu & Sayanti — Wedding Invitation">
   <meta name="twitter:description" content="Wedding • 13 December 2026 | Reception • 18 December 2026">
-  <meta name="twitter:image" content="https://YOUR-PROJECT.vercel.app/assets/share-preview.png">
+  <meta name="twitter:image" content="https://atanu-sayanti-wedding.vercel.app/assets/share-preview.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,11 +107,39 @@
         <div class="intro-text">
           <p class="eyebrow">A new chapter</p>
           <h2>With joyful hearts, we invite you.</h2>
-          <p>It would mean the world to us to have you by our side as we celebrate our wedding with the people we love most.</p>
+          <p>With the blessings of Lord Prajapati and the warm wishes of our family and friends, we invite you to celebrate this joyful union.</p>
           <p>Please join us for the celebrations of <strong>Atanu Bhattacharjee</strong> and <strong>Sayanti Bhattacharjee</strong>.</p>
           <p class="signature">Atanu & Sayanti</p>
         </div>
       </div>
+    </section>
+
+
+    <section class="section center" id="families">
+      <p class="eyebrow">Together with our families</p>
+      <h2 class="section-title">Our Families</h2>
+      <div class="events">
+        <article class="event-card">
+          <p class="eyebrow">Groom</p>
+          <h3>Atanu Bhattacharjee</h3>
+          <div class="event-details">
+            <p><strong>Father:</strong> Goutam Bhattacharjee</p>
+            <p><strong>Mother:</strong> Khelu Bhattacharjee</p>
+            <p><strong>Address:</strong> Kali Chakraborty Colony, 85 No. Alkaran, 2nd Lane, Chattogram</p>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <p class="eyebrow">Bride</p>
+          <h3>Sayanti Bhattacharjee</h3>
+          <div class="event-details">
+            <p><strong>Father:</strong> Bijoy Kumar Bhattacharjee</p>
+            <p><strong>Mother:</strong> Sudipta Bhattacharjee</p>
+            <p><strong>Address:</strong> Mohan Bari, Puraton Bazar, Banigram, Banshkhali, Chattogram</p>
+          </div>
+        </article>
+      </div>
+      <p class="more-events">With warm invitation from Gautam Bhattacharjee, Khelu Bhattacharjee and Arati Chakraborty (Grandmother).</p>
     </section>
 
     <section class="countdown-section">
@@ -128,9 +156,8 @@
     <section class="section center" id="events">
       <p class="eyebrow">Save the dates</p>
       <h2 class="section-title">Celebrations</h2>
-      <p class="section-copy">The remaining ceremonies, times and venues will be added as soon as they are finalized.</p>
+      <p class="section-copy">Wedding and reception details from the family invitation.</p>
       <div class="events" id="eventList"></div>
-      <p class="more-events">More celebration details coming soon.</p>
     </section>
 
     <section class="section center" id="gallery">
@@ -166,26 +193,27 @@
        EDIT ONLY THIS SECTION when you get more wedding details.
        ========================================================== */
     const wedding = {
-      countdownDate: "2026-12-13T00:00:00",
+      countdownDate: "2026-12-13T17:18:00+06:00",
 
       events: [
         {
           title: "Wedding",
-          date: "Sunday, 13 December 2026",
-          time: "Time to be announced",
-          venue: "Venue to be announced",
-          address: "",
-          mapUrl: ""
+          date: "Sunday, 13 December 2026 • 26 Agrahayan 1433",
+          time: "Groom’s Procession: 6:30 PM<br>Dinner: 8:00 PM<br>Auspicious Wedding Time: 5:18 PM – 12:29 AM",
+          venue: "Rajbari Convention Center",
+          address: "1676/A, Shah Amanat Setu Road, Rajakhali (opposite Mir Filling Station), Chattogram",
+          mapUrl: "https://maps.app.goo.gl/EjpGrSHdfWVwWM9X6"
         },
         {
           title: "Reception",
           date: "Friday, 18 December 2026",
-          time: "Time to be announced",
-          venue: "Venue to be announced",
-          address: "",
-          mapUrl: ""
+          time: "Dinner: 8:00 PM",
+          venue: "Rangam Convention Hall",
+          address: "Opposite Chattogram Court Building, 34 Court Road, Kotwali, Chattogram",
+          mapUrl: "https://maps.app.goo.gl/9ZhGQNCjhTkjVhkY8"
         }
-        // Add more ceremonies here later. I can give you the exact blocks.
+
+        // Add more ceremonies here later.
       ],
 
       // Digits only with country code. Example Bangladesh: 88017XXXXXXXX
