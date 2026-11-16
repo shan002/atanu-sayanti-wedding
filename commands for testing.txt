@@ -1,5 +1,0 @@
-python -m http.server 8000  // test locally before git committing
-and test the following local server link:
-http://localhost:8000
-
-just do git add and commit and vercel will automatically update that in the live version
