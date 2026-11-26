@@ -213,7 +213,7 @@
               <button class="rsvp-submit" id="rsvpSubmit" type="submit"><span>Send RSVP</span><span aria-hidden="true">→</span></button>
               <button class="rsvp-copy" id="rsvpCopy" type="button">Copy RSVP</button>
             </div>
-            <p class="rsvp-note" id="rsvpNoteText">${cfg.rsvp.sheetEndpoint ? "Your response will be saved privately to the wedding RSVP sheet." : "RSVP collection is not connected yet. Add the Google Sheet web-app URL in assets/config.js."}</p>
+            <p class="rsvp-note" id="rsvpNoteText">${cfg.rsvp.sheetEndpoint ? "Your RSVP will be received privately by the couple." : "RSVP collection is not connected yet. Add the Google Sheet web-app URL in assets/config.js."}</p>
           </form>
         </div>
       </section>
