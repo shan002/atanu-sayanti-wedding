@@ -1,0 +1,17 @@
+COPY/RENAME PHOTOS HERE
+
+KEEP EXISTING:
+hero.jpg
+couple.jpg
+pic-1.jpg
+pic-2.jpg
+pic-3.jpg
+pic-4.jpg
+
+NEW PHOTOS INCLUDED IN THIS PROJECT:
+save-the-date.jpg  = newspaper / Save The Date landscape photo
+pic-5.jpg          = full-body portrait: black shirt + red dress + guitar
+pic-6.jpg          = close portrait under white drape with bouquet
+
+After replacing any photo, run:
+py tools/optimize-images.py

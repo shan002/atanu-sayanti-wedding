@@ -1,9 +1,9 @@
 window.WEDDING_CONFIG = {
   couple: {
     groom: "Atanu Bhattacharjee",
-    bride: "Sayanti Bhattacharjee",
+    bride: "Sayonti Bhattacharjee",
     shortGroom: "Atanu",
-    shortBride: "Sayanti",
+    shortBride: "Sayonti",
     initials: "A&S"
   },
 
@@ -19,12 +19,7 @@ window.WEDDING_CONFIG = {
       father: "Bijoy Kumar Bhattacharjee",
       mother: "Sudipta Bhattacharjee",
       address: "Mohan Bari, Puraton Bazar, Banigram, Banshkhali, Chattogram"
-    },
-    hosts: [
-      { name: "Goutam Bhattacharjee", relation: "Groom's Father" },
-      { name: "Khelu Bhattacharjee", relation: "Groom's Mother" },
-      { name: "Arati Chakraborty", relation: "Grandmother" }
-    ]
+    }
   },
 
   events: {
@@ -82,11 +77,15 @@ window.WEDDING_CONFIG = {
   },
 
   rsvp: {
-    // Optional but recommended. Digits only, including country code.
-    // Example Bangladesh: "88017XXXXXXXX"
-    whatsappNumber: "", // Add the family RSVP number here when decided.
+    // Recommended: paste your deployed Google Apps Script web-app URL here.
+    // Example: "https://script.google.com/macros/s/ABC123/exec"
+    sheetEndpoint: "https://script.google.com/macros/s/AKfycbxmNceob9HT7y89MGoZreq19yA5gpKy1u-bHESmrCGfmttOC5dr8Q5F5bb5mp1E8-wj/exec",
     intro: "Please let us know which celebrations you will be joining."
   },
 
-  musicFile: "/assets/wedding_background.mp3"
+  musicFile: "/assets/wedding_background.mp3",
+// 0 = mute, 1 = full volume. 0.35 is a comfortable background level.
+  musicVolume: 0.35,
+  // Load optimized photos first, then quietly replace them with the full originals.
+  loadFullResolutionAfterInitial: true
 };
