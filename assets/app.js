@@ -26,7 +26,7 @@
       : `<p class="coming-soon">Celebration details will be shared soon.</p>`;
     const actions = [
       event.mapUrl ? `<a class="btn" href="${esc(event.mapUrl)}" target="_blank" rel="noopener">${icons.pin}<span>Open Map</span></a>` : "",
-      event.dateTime ? `<a class="btn btn-outline" href="/calendar/${esc(event.id)}.ics">${icons.calendar}<span>Add to Calendar</span></a>` : ""
+      event.dateTime ? `<button class="btn btn-outline" type="button" data-calendar="${esc(event.id)}">${icons.calendar}<span>Add to Calendar</span></button>` : ""
     ].join("");
 
     return `<article class="event-card event-${esc(event.id)} reveal">
@@ -408,6 +408,29 @@
   window.addEventListener("pagehide", stopMusicForExit);
   window.addEventListener("beforeunload", stopMusicForExit);
   window.addEventListener("blur", stopMusicForExit);
+
+  function compactCalendarDate(value) {
+    return new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  }
+
+  function googleCalendarUrl(event) {
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: `${event.label} — Atanu & Sayonti`,
+      dates: `${compactCalendarDate(event.dateTime)}/${compactCalendarDate(event.endDateTime || event.dateTime)}`,
+      details: "Celebrating Atanu Bhattacharjee and Sayonti Bhattacharjee.",
+      location: [event.venue, event.address].filter(Boolean).join(", ")
+    });
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }
+
+  document.querySelectorAll("[data-calendar]").forEach(button => {
+    button.addEventListener("click", () => {
+      const event = cfg.events[button.dataset.calendar];
+      if (!event?.dateTime) return;
+      window.location.href = googleCalendarUrl(event);
+    });
+  });
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightboxImage");
