@@ -7,7 +7,7 @@ window.WEDDING_CONFIG = {
     initials: "A&S"
   },
 
-  weddingDate: "2026-12-13T17:18:00+06:00",
+  weddingDate: "2026-12-13T20:00:00+06:00",
 
   family: {
     groom: {
