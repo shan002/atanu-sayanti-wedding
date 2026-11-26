@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//Atanu & Sayonti//Wedding Invitation//EN
+BEGIN:VEVENT
+UID:wedding-20261213-atanu-sayonti@atanu-sayanti-wedding.vercel.app
+DTSTAMP:20261126T070000Z
+DTSTART:20261213T111800Z
+DTEND:20261213T182900Z
+SUMMARY:Wedding Ceremony — Atanu & Sayonti
+LOCATION:Rajbari Convention Center\, 1676/A\, Shah Amanat Setu Road\, Rajakhali (opposite Mir Filling Station)\, Chattogram
+DESCRIPTION:Wedding ceremony of Atanu Bhattacharjee and Sayonti Bhattacharjee. Auspicious wedding time: 5:18 PM – 12:29 AM. Groom's Procession: 6:30 PM. Dinner: 8:00 PM.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

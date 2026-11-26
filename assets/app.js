@@ -26,7 +26,7 @@
       : `<p class="coming-soon">Celebration details will be shared soon.</p>`;
     const actions = [
       event.mapUrl ? `<a class="btn" href="${esc(event.mapUrl)}" target="_blank" rel="noopener">${icons.pin}<span>Open Map</span></a>` : "",
-      event.dateTime ? `<button class="btn btn-outline" type="button" data-calendar="${esc(event.id)}">${icons.calendar}<span>Add to Calendar</span></button>` : ""
+      event.dateTime ? `<a class="btn btn-outline" href="/calendar/${esc(event.id)}.ics">${icons.calendar}<span>Add to Calendar</span></a>` : ""
     ].join("");
 
     return `<article class="event-card event-${esc(event.id)} reveal">
@@ -279,29 +279,6 @@
     diff %= minute;
     document.getElementById("seconds").textContent = String(Math.floor(diff / 1000)).padStart(2, "0");
   }
-
-  function calendarText(event) {
-    const compact = value => new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-    return [
-      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Atanu & Sayonti//Wedding Invitation//EN", "BEGIN:VEVENT",
-      `DTSTART:${compact(event.dateTime)}`, `DTEND:${compact(event.endDateTime || event.dateTime)}`,
-      `SUMMARY:${event.label} — Atanu & Sayonti`, `LOCATION:${event.venue}${event.address ? ", " + event.address : ""}`,
-      "DESCRIPTION:Celebrating the wedding of Atanu Bhattacharjee and Sayonti Bhattacharjee", "END:VEVENT", "END:VCALENDAR"
-    ].join("\r\n");
-  }
-
-  document.querySelectorAll("[data-calendar]").forEach(button => {
-    button.addEventListener("click", () => {
-      const event = cfg.events[button.dataset.calendar];
-      if (!event?.dateTime) return;
-      const blob = new Blob([calendarText(event)], {type:"text/calendar;charset=utf-8"});
-      const url = URL.createObjectURL(blob), a = document.createElement("a");
-      a.href = url;
-      a.download = `${event.id}-atanu-sayonti.ics`;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-  });
 
   document.querySelectorAll('input[name="status"]').forEach(input => {
     input.addEventListener("change", () => {
