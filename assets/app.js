@@ -20,13 +20,28 @@
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const image = (optimizedName, fullName, alt, cls = "", loading = "lazy") => `<img class="${cls}" src="/images/optimized/${optimizedName}" data-full-src="/images/${fullName}" alt="${esc(alt)}" loading="${loading}" decoding="async" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src=this.dataset.fullSrc}">`;
 
+  function compactCalendarDate(value) {
+    return new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  }
+
+  function googleCalendarUrl(event) {
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: `${event.label} — Atanu & Sayonti`,
+      dates: `${compactCalendarDate(event.dateTime)}/${compactCalendarDate(event.endDateTime || event.dateTime)}`,
+      details: "Celebrating Atanu Bhattacharjee and Sayonti Bhattacharjee.",
+      location: [event.venue, event.address].filter(Boolean).join(", ")
+    });
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }
+
   function eventCard(event) {
     const schedule = event.schedule.length
       ? `<div class="schedule">${event.schedule.map(([label, time]) => `<div class="schedule-row"><span>${esc(label)}</span><strong>${esc(time)}</strong></div>`).join("")}</div>`
       : `<p class="coming-soon">Celebration details will be shared soon.</p>`;
     const actions = [
       event.mapUrl ? `<a class="btn" href="${esc(event.mapUrl)}" target="_blank" rel="noopener">${icons.pin}<span>Open Map</span></a>` : "",
-      event.dateTime ? `<button class="btn btn-outline" type="button" data-calendar="${esc(event.id)}">${icons.calendar}<span>Add to Calendar</span></button>` : ""
+      event.dateTime ? `<a class="btn btn-outline" href="${esc(googleCalendarUrl(event))}" target="_blank" rel="noopener">${icons.calendar}<span>Add to Calendar</span></a>` : ""
     ].join("");
 
     return `<article class="event-card event-${esc(event.id)} reveal">
@@ -70,38 +85,213 @@
       <span class="rail-diya">${icons.diya}</span>
     </div>
     <div class="opening" id="opening">
-      <div class="opening-border" aria-hidden="true"></div>
-      <div class="opening-toran" aria-hidden="true"></div>
       <div class="opening-sparkles" aria-hidden="true"></div>
-      <div class="hanging-garland garland-left" aria-hidden="true"></div>
-      <div class="hanging-garland garland-right" aria-hidden="true"></div>
-      <div class="opening-side opening-side-left" aria-hidden="true">
-        <div class="side-arch"><span class="side-lotus">${icons.lotus}</span><span class="side-rings">${icons.rings}</span><span class="side-diya">${icons.diya}</span></div>
-      </div>
-      <div class="opening-side opening-side-right" aria-hidden="true">
-        <div class="side-arch"><span class="side-lotus">${icons.lotus}</span><span class="side-rings">${icons.rings}</span><span class="side-diya">${icons.diya}</span></div>
-      </div>
       <div class="opening-mandala mandala-one" aria-hidden="true"></div>
       <div class="opening-mandala mandala-two" aria-hidden="true"></div>
-      <div class="opening-stage">
+
+      <div class="opening-stage lux-opening-stage">
         <div class="opening-om">ॐ</div>
-        <div class="opening-ornament">${icons.lotus}</div>
         <p class="sacred-line">Shri Shri Prajapataye Namah</p>
-        <p class="opening-small">Together with our families</p>
-        ${guestName ? `<p class="opening-guest">Dear ${esc(guestName)}</p>` : ""}
-        <h1 class="opening-title"><span>${cfg.couple.shortGroom}</span><em>&</em><span>${cfg.couple.shortBride}</span></h1>
-        <p class="opening-date">13 • 12 • 2026</p>
-        <button class="grand-open-button" id="openInvitation" aria-label="Open wedding invitation">
-          <span class="grand-seal">${cfg.couple.initials}</span>
-          <span class="grand-open-copy">Open Invitation</span>
-        </button>
-        <div class="opening-diyas" aria-hidden="true"><span>◖</span><i></i><span>◗</span></div>
+        <p class="opening-small">A wedding invitation</p>
+        ${guestName ? `<p class="opening-guest">For ${esc(guestName)}</p>` : ""}
+
+        <div class="lux-envelope-scene">
+          <div class="lux-aura" aria-hidden="true"></div>
+          <div class="lux-light-rays" aria-hidden="true"></div>
+
+          <article class="lux-letter" aria-hidden="true">
+            <div class="lux-letter-frame"></div>
+            <div class="lux-letter-lotus">${icons.lotus}</div>
+            <p>Together with our families</p>
+            <h1><span>${cfg.couple.shortGroom}</span><em>&</em><span>${cfg.couple.shortBride}</span></h1>
+            <div class="lux-letter-rule"></div>
+            <strong>13 • 12 • 2026</strong>
+            <small>Chattogram</small>
+          </article>
+
+          <div class="lux-envelope" aria-hidden="true">
+            <div class="lux-envelope-back"></div>
+
+            <svg class="lux-envelope-pattern" viewBox="0 0 520 330" aria-hidden="true">
+              <defs>
+                <filter id="paperEmboss" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="1" stdDeviation=".45" flood-color="#fff9ea" flood-opacity=".9"/>
+                  <feDropShadow dx="0" dy="-1" stdDeviation=".45" flood-color="#9f6f2c" flood-opacity=".26"/>
+                </filter>
+                <g id="botanicalLeft">
+                  <path class="botanical-stem" d="M31 281C72 264 83 230 90 199c8-35 21-63 47-87 23-21 50-31 82-29"/>
+                  <path class="botanical-stem fine" d="M54 267c28-25 40-53 43-83 4-34 19-59 46-78"/>
+                  <path class="botanical-curl" d="M39 289c-10-8-10-18-2-25 8-7 20-4 22 5 2 8-4 15-13 16"/>
+                  <path class="botanical-curl" d="M134 116c-9-15-5-29 8-35 12-5 25 3 25 15 0 11-9 20-21 19"/>
+
+                  <g class="leaf-set">
+                    <path class="leaf" d="M70 238c4-18 16-29 34-31 1 17-9 30-34 31Z"/>
+                    <path class="vein" d="M72 236c10-9 19-17 31-27"/>
+                    <path class="leaf" d="M88 201c-4-18 4-31 21-39 6 16 0 30-21 39Z"/>
+                    <path class="vein" d="M90 199c5-12 10-23 18-35"/>
+                    <path class="leaf" d="M108 164c3-18 14-29 32-33 2 17-8 30-32 33Z"/>
+                    <path class="vein" d="M110 162c10-10 19-19 29-29"/>
+                    <path class="leaf" d="M145 124c-1-16 8-28 25-34 4 15-3 27-25 34Z"/>
+                    <path class="vein" d="M147 122c7-10 14-19 22-29"/>
+                    <path class="leaf small" d="M55 258c-14-4-25 2-32 14 13 6 25 1 32-14Z"/>
+                    <path class="vein" d="M52 259c-9 2-18 5-27 10"/>
+                    <path class="leaf small" d="M99 185c12-10 25-10 37-2-9 12-22 14-37 2Z"/>
+                    <path class="vein" d="M102 185c10 0 20 0 31 0"/>
+                  </g>
+
+                  <g class="flower flower-a" transform="translate(73 224)">
+                    <ellipse cx="0" cy="-8" rx="4.5" ry="8"/>
+                    <ellipse cx="7.5" cy="-2.5" rx="4.5" ry="8" transform="rotate(72 7.5 -2.5)"/>
+                    <ellipse cx="4.5" cy="6" rx="4.5" ry="8" transform="rotate(144 4.5 6)"/>
+                    <ellipse cx="-4.5" cy="6" rx="4.5" ry="8" transform="rotate(216 -4.5 6)"/>
+                    <ellipse cx="-7.5" cy="-2.5" rx="4.5" ry="8" transform="rotate(288 -7.5 -2.5)"/>
+                    <circle cx="0" cy="0" r="2.2"/>
+                  </g>
+                  <g class="flower flower-b" transform="translate(126 146) scale(.8)">
+                    <ellipse cx="0" cy="-8" rx="4.5" ry="8"/>
+                    <ellipse cx="7.5" cy="-2.5" rx="4.5" ry="8" transform="rotate(72 7.5 -2.5)"/>
+                    <ellipse cx="4.5" cy="6" rx="4.5" ry="8" transform="rotate(144 4.5 6)"/>
+                    <ellipse cx="-4.5" cy="6" rx="4.5" ry="8" transform="rotate(216 -4.5 6)"/>
+                    <ellipse cx="-7.5" cy="-2.5" rx="4.5" ry="8" transform="rotate(288 -7.5 -2.5)"/>
+                    <circle cx="0" cy="0" r="2.2"/>
+                  </g>
+
+                  <path class="bud" d="M164 104c5-9 12-12 20-8-1 9-7 14-17 13Z"/>
+                  <path class="bud-line" d="M165 106l-13 16"/>
+                  <path class="bud" d="M91 177c-9-4-14-11-11-20 9 0 15 5 17 15Z"/>
+                  <path class="bud-line" d="M92 179l10 9"/>
+
+                  <g class="mini-berries">
+                    <circle cx="58" cy="247" r="2.2"/><circle cx="63" cy="251" r="1.8"/><circle cx="53" cy="253" r="1.6"/>
+                    <circle cx="114" cy="174" r="1.8"/><circle cx="119" cy="177" r="1.5"/>
+                  </g>
+                </g>
+
+                <g id="cornerFiligree">
+                  <path d="M18 18h48c18 0 28 8 33 22"/>
+                  <path d="M18 18v42c0 18 9 29 25 35"/>
+                  <path d="M37 18c0 17 7 27 22 31"/>
+                  <path d="M18 39c16 0 27 7 31 21"/>
+                  <path d="M54 18c-1 8 3 14 10 18"/>
+                  <path d="M18 53c8-1 14 3 18 10"/>
+                  <circle cx="67" cy="37" r="2.3"/>
+                  <circle cx="38" cy="68" r="2.3"/>
+                </g>
+              </defs>
+
+              <g filter="url(#paperEmboss)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <use href="#botanicalLeft"/>
+                <use href="#botanicalLeft" transform="translate(520 0) scale(-1 1)"/>
+                <use href="#cornerFiligree"/>
+                <use href="#cornerFiligree" transform="translate(520 0) scale(-1 1)"/>
+                <use href="#cornerFiligree" transform="translate(0 330) scale(1 -1)"/>
+                <use href="#cornerFiligree" transform="translate(520 330) scale(-1 -1)"/>
+              </g>
+
+              <g class="center-engraving" filter="url(#paperEmboss)" fill="none" stroke="currentColor">
+                <path d="M226 74c14-17 28-25 34-25s20 8 34 25"/>
+                <path d="M239 68c6-12 13-18 21-18s15 6 21 18"/>
+                <path d="M260 48v27"/>
+                <path d="M247 59c-9-7-17-7-24-1 6 9 14 12 24 8"/>
+                <path d="M273 59c9-7 17-7 24-1-6 9-14 12-24 8"/>
+                <circle cx="260" cy="48" r="2.2"/>
+              </g>
+            </svg>
+
+            <div class="lux-flap">
+              <svg viewBox="0 0 520 190" aria-hidden="true">
+                <defs>
+                  <filter id="flapEmboss" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="1" stdDeviation=".4" flood-color="#fff9ea" flood-opacity=".92"/>
+                    <feDropShadow dx="0" dy="-1" stdDeviation=".4" flood-color="#9f6f2c" flood-opacity=".24"/>
+                  </filter>
+                  <g id="flapBranch">
+                    <path class="flap-stem" d="M30 34c47 9 82 29 109 59 18 20 35 31 58 39"/>
+                    <path class="flap-stem fine" d="M52 43c34 14 58 33 76 57"/>
+                    <path class="flap-leaf" d="M71 53c8-13 20-18 35-15-3 14-13 21-35 15Z"/>
+                    <path class="flap-vein" d="M75 52c10-4 19-8 28-12"/>
+                    <path class="flap-leaf" d="M103 73c5-14 16-22 31-22 0 14-9 23-31 22Z"/>
+                    <path class="flap-vein" d="M106 72c9-6 18-12 27-18"/>
+                    <path class="flap-leaf" d="M135 101c0-14 8-24 23-29 4 13-2 23-23 29Z"/>
+                    <path class="flap-vein" d="M137 99c6-8 12-17 19-25"/>
+                    <path class="flap-bud" d="M159 119c6-8 13-10 21-6-2 9-8 13-18 11Z"/>
+                    <path d="M162 120l-9 10"/>
+                    <circle cx="114" cy="82" r="2"/>
+                    <circle cx="121" cy="87" r="1.5"/>
+                  </g>
+                </defs>
+                <g filter="url(#flapEmboss)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <use href="#flapBranch"/>
+                  <use href="#flapBranch" transform="translate(520 0) scale(-1 1)"/>
+                  <path class="flap-center" d="M232 45c10-13 20-19 28-19s18 6 28 19"/>
+                  <path class="flap-center" d="M247 43c4-8 8-12 13-12s9 4 13 12"/>
+                  <path class="flap-center" d="M260 26v29"/>
+                  <circle cx="260" cy="26" r="2"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="lux-pocket-left"></div>
+            <div class="lux-pocket-right"></div>
+            <div class="lux-pocket-bottom"></div>
+          </div>
+
+          <button class="lux-seal" id="openInvitation" type="button" aria-label="Open wedding invitation">
+            <span class="seal-heat" aria-hidden="true"></span>
+            <span class="seal-half seal-half-left" aria-hidden="true"></span>
+            <span class="seal-half seal-half-right" aria-hidden="true"></span>
+            <span class="seal-mark">${cfg.couple.initials}</span>
+            <span class="seal-crack crack-one" aria-hidden="true"></span>
+            <span class="seal-crack crack-two" aria-hidden="true"></span>
+            <span class="seal-flame flame-one" aria-hidden="true"></span>
+            <span class="seal-flame flame-two" aria-hidden="true"></span>
+            <span class="seal-flame flame-three" aria-hidden="true"></span>
+            <i class="seal-ember ember-one" aria-hidden="true"></i>
+            <i class="seal-ember ember-two" aria-hidden="true"></i>
+            <i class="seal-ember ember-three" aria-hidden="true"></i>
+            <i class="seal-ember ember-four" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
     </div>
 
     <header class="hero" id="home">
       <div class="hero-media" aria-hidden="true">${image("hero-1600.jpg", "hero.jpg", "", "hero-image", "eager")}</div>
       <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="hero-butterfly" aria-hidden="true">
+        <svg viewBox="0 0 128 86" role="presentation">
+          <defs>
+            <linearGradient id="butterflyWine" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff2cf"/>
+              <stop offset=".42" stop-color="#d9ad58"/>
+              <stop offset="1" stop-color="#7d2437"/>
+            </linearGradient>
+            <linearGradient id="butterflyGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff7dc"/>
+              <stop offset="1" stop-color="#d2a04a"/>
+            </linearGradient>
+          </defs>
+          <g class="butterfly-wing butterfly-left-wing">
+            <path d="M60 40C48 16 27 4 12 13 1 20 8 40 27 49 37 54 48 51 60 44Z" fill="url(#butterflyWine)" stroke="#f1d696" stroke-width="2"/>
+            <path d="M58 46C43 47 26 51 22 64c-3 10 9 15 21 10 10-4 16-14 19-25Z" fill="#9a4350" stroke="#eacb83" stroke-width="1.7"/>
+            <path d="M18 19c12 6 19 15 23 27M26 14c10 9 17 19 20 33" fill="none" stroke="#6b2332" stroke-width="1.4" opacity=".7"/>
+            <circle cx="25" cy="28" r="4.5" fill="#fff0bd" opacity=".9"/>
+            <circle cx="35" cy="41" r="3" fill="#f6d276" opacity=".85"/>
+            <path d="M30 59c7 2 13 0 18-6" fill="none" stroke="#f2d79b" stroke-width="1.4"/>
+          </g>
+          <g class="butterfly-wing butterfly-right-wing">
+            <path d="M68 40c12-24 33-36 48-27 11 7 4 27-15 36-10 5-21 2-33-5Z" fill="url(#butterflyWine)" stroke="#f1d696" stroke-width="2"/>
+            <path d="M70 46c15 1 32 5 36 18 3 10-9 15-21 10-10-4-16-14-19-25Z" fill="#9a4350" stroke="#eacb83" stroke-width="1.7"/>
+            <path d="M110 19c-12 6-19 15-23 27M102 14c-10 9-17 19-20 33" fill="none" stroke="#6b2332" stroke-width="1.4" opacity=".7"/>
+            <circle cx="103" cy="28" r="4.5" fill="#fff0bd" opacity=".9"/>
+            <circle cx="93" cy="41" r="3" fill="#f6d276" opacity=".85"/>
+            <path d="M98 59c-7 2-13 0-18-6" fill="none" stroke="#f2d79b" stroke-width="1.4"/>
+          </g>
+          <path d="M64 31c-4 5-5 14-3 24 1 8 3 15 3 22 0-7 2-14 3-22 2-10 1-19-3-24Z" fill="#5f1626"/>
+          <ellipse cx="64" cy="33" rx="4" ry="5" fill="url(#butterflyGold)"/>
+          <path d="M62 29c-8-10-14-10-18-6M66 29c8-10 14-10 18-6" fill="none" stroke="#e6c87e" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
       <nav class="nav">
         <a class="nav-mark" href="#home">${cfg.couple.initials}</a>
@@ -234,24 +424,110 @@
   const opening = document.getElementById("opening");
   const openInvitation = document.getElementById("openInvitation");
   openInvitation.addEventListener("click", () => {
+    if (opening.classList.contains("opening-active")) return;
     opening.classList.add("opening-active");
-    launchPetals();
     startMusic();
+    setTimeout(launchPetals, 5150);
     setTimeout(() => {
-      opening.classList.add("opened");
       document.body.classList.remove("locked");
       document.body.classList.add("invitation-open");
+      flyButterfly();
       if (cfg.musicFile) musicButton.hidden = false;
-    }, 900);
+    }, 5900);
+    setTimeout(() => opening.classList.add("opened"), 5000);
   });
+
+  function flyButterfly() {
+    const butterfly = document.querySelector(".hero-butterfly");
+    const hero = document.getElementById("home");
+    if (!butterfly || !hero) return;
+
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const targetX = hero.clientWidth * 0.5;
+    const targetY = hero.clientHeight * (innerWidth <= 430 ? 0.60 : 0.59);
+
+    if (reduceMotion) {
+      butterfly.style.left = `${targetX}px`;
+      butterfly.style.top = `${targetY}px`;
+      butterfly.style.opacity = "1";
+      butterfly.style.transform = "translate(-50%,-50%)";
+      return;
+    }
+
+    const rand = (min, max) => min + Math.random() * (max - min);
+    const startY = hero.clientHeight * rand(0.56, 0.69);
+    const fractions = [0, .13, .29, .47, .66, .82, .93, 1];
+    const points = fractions.map((f, i) => {
+      if (i === 0) return {x: -70, y: startY};
+      if (i === fractions.length - 1) return {x: targetX, y: targetY};
+      const baseY = startY + (targetY - startY) * f;
+      const spread = hero.clientHeight * (0.12 * (1 - f) + 0.018);
+      return {
+        x: targetX * f + rand(-24, 24),
+        y: Math.max(40, Math.min(hero.clientHeight - 40, baseY + rand(-spread, spread)))
+      };
+    });
+
+    const catmull = (p0, p1, p2, p3, t) => {
+      const t2 = t * t, t3 = t2 * t;
+      return {
+        x: .5 * ((2*p1.x) + (-p0.x+p2.x)*t + (2*p0.x-5*p1.x+4*p2.x-p3.x)*t2 + (-p0.x+3*p1.x-3*p2.x+p3.x)*t3),
+        y: .5 * ((2*p1.y) + (-p0.y+p2.y)*t + (2*p0.y-5*p1.y+4*p2.y-p3.y)*t2 + (-p0.y+3*p1.y-3*p2.y+p3.y)*t3)
+      };
+    };
+
+    const sample = progress => {
+      const count = points.length - 1;
+      const scaled = Math.min(progress, .999999) * count;
+      const i = Math.floor(scaled);
+      const t = scaled - i;
+      return catmull(
+        points[Math.max(0, i - 1)],
+        points[i],
+        points[Math.min(points.length - 1, i + 1)],
+        points[Math.min(points.length - 1, i + 2)],
+        t
+      );
+    };
+
+    const duration = rand(4300, 5600);
+    const start = performance.now();
+    butterfly.style.opacity = "0";
+
+    function frame(now) {
+      const raw = Math.min(1, (now - start) / duration);
+      const progress = 1 - Math.pow(1 - raw, 1.45);
+      const pos = sample(progress);
+      const ahead = sample(Math.min(1, progress + .006));
+      const angle = Math.atan2(ahead.y - pos.y, ahead.x - pos.x) * 180 / Math.PI;
+      const settle = Math.max(0, (progress - .82) / .18);
+      const scale = .86 + .14 * Math.min(1, progress / .55);
+
+      butterfly.style.left = `${pos.x}px`;
+      butterfly.style.top = `${pos.y}px`;
+      butterfly.style.opacity = String(Math.min(1, raw * 9));
+      butterfly.style.transform = `translate(-50%,-50%) rotate(${angle * (1 - settle)}deg) scale(${scale})`;
+
+      if (raw < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        butterfly.style.left = `${targetX}px`;
+        butterfly.style.top = `${targetY}px`;
+        butterfly.style.opacity = "1";
+        butterfly.style.transform = "translate(-50%,-50%) rotate(0deg) scale(1)";
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
 
   function launchPetals() {
     const layer = document.getElementById("petalLayer");
     if (!layer || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const colors = ["#e99b2d", "#f2b83f", "#d86535", "#ffcf61"];
+    const colors = ["#f2d99f", "#d7ae58", "#fff0cf", "#c9848e"];
     for (let i = 0; i < 28; i++) {
       const petal = document.createElement("i");
-      petal.className = "marigold-petal";
+      petal.className = "reveal-petal";
       petal.style.setProperty("--x", `${Math.random()*100}%`);
       petal.style.setProperty("--size", `${7 + Math.random()*9}px`);
       petal.style.setProperty("--delay", `${Math.random()*1.5}s`);
@@ -359,7 +635,7 @@
     try {
       await fetch(cfg.rsvp.sheetEndpoint, {method:"POST", mode:"no-cors", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:payload});
       button.querySelector("span").textContent = "RSVP Sent ✓";
-      note.textContent = "Thank you. Your RSVP has been recorded.";
+      note.textContent = "Thank you. Your RSVP has been sent.";
       event.target.reset();
     } catch (_) {
       button.disabled = false;
@@ -408,29 +684,6 @@
   window.addEventListener("pagehide", stopMusicForExit);
   window.addEventListener("beforeunload", stopMusicForExit);
   window.addEventListener("blur", stopMusicForExit);
-
-  function compactCalendarDate(value) {
-    return new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  }
-
-  function googleCalendarUrl(event) {
-    const params = new URLSearchParams({
-      action: "TEMPLATE",
-      text: `${event.label} — Atanu & Sayonti`,
-      dates: `${compactCalendarDate(event.dateTime)}/${compactCalendarDate(event.endDateTime || event.dateTime)}`,
-      details: "Celebrating Atanu Bhattacharjee and Sayonti Bhattacharjee.",
-      location: [event.venue, event.address].filter(Boolean).join(", ")
-    });
-    return `https://calendar.google.com/calendar/render?${params.toString()}`;
-  }
-
-  document.querySelectorAll("[data-calendar]").forEach(button => {
-    button.addEventListener("click", () => {
-      const event = cfg.events[button.dataset.calendar];
-      if (!event?.dateTime) return;
-      window.location.href = googleCalendarUrl(event);
-    });
-  });
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightboxImage");
