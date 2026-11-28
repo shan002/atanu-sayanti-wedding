@@ -79,7 +79,7 @@ window.WEDDING_CONFIG = {
   rsvp: {
     // Recommended: paste your deployed Google Apps Script web-app URL here.
     // Example: "https://script.google.com/macros/s/ABC123/exec"
-    sheetEndpoint: "",
+    sheetEndpoint: "https://script.google.com/macros/s/AKfycbxmNceob9HT7y89MGoZreq19yA5gpKy1u-bHESmrCGfmttOC5dr8Q5F5bb5mp1E8-wj/exec",
     intro: "Please let us know which celebrations you will be joining."
   },
 
