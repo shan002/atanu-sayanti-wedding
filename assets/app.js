@@ -433,7 +433,7 @@
       flyButterfly();
       if (cfg.musicFile) musicButton.hidden = false;
     }, 5900);
-    setTimeout(() => opening.classList.add("opened"), 6100);
+    setTimeout(() => opening.classList.add("opened"), 5000);
   });
 
   function flyButterfly() {

@@ -410,7 +410,7 @@ body:not(.invitation-open) .scroll-progress{opacity:0}
 .opening.opening-active .ember-two{animation:emberFly2 .85s .3s ease-out forwards}
 .opening.opening-active .ember-three{animation:emberFly3 .78s .34s ease-out forwards}
 .opening.opening-active .ember-four{animation:emberFly4 .82s .36s ease-out forwards}
-.opening.opening-active .lux-flap{animation:flapOpen 1.85s .78s cubic-bezier(.18,.68,.18,1) forwards}
+.opening.opening-active .lux-flap{animation:flapOpen 5s .78s cubic-bezier(.18,.68,.18,1) forwards}
 .opening.opening-active .lux-letter{animation:letterRise 2.75s 1.95s cubic-bezier(.16,.72,.18,1) forwards,letterReveal 1.05s 2.05s ease-out forwards}
 .opening.opening-active .lux-envelope{animation:envelopeLeave 1.05s 2.15s cubic-bezier(.22,.68,.2,1) forwards}
 .opening.opening-active .lux-aura{animation:auraBloom 2s .65s ease forwards}
