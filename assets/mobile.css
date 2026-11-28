@@ -1,0 +1,278 @@
+/* Mobile optimization layer — loaded after styles.css.
+   Keeps desktop styling intact and fixes layout/touch behavior on phones. */
+
+@media (max-width: 760px) {
+  html, body { max-width:100%; overflow-x:hidden }
+  body { font-size:15px; -webkit-text-size-adjust:100% }
+  .section { width:calc(100% - 28px); padding:64px 0 }
+  .section-title { font-size:clamp(2.75rem,12vw,4rem); line-height:.98 }
+  .section-lead { margin-top:1rem; font-size:.96rem; line-height:1.6 }
+
+  /* Opening / envelope */
+  .opening {
+    overflow:hidden;
+    padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));
+  }
+  .lux-opening-stage { width:100%; max-width:520px; padding:8px 0 16px }
+  .opening-ornament { width:48px }
+  .sacred-line { margin:.1rem 0 .65rem; font-size:1.02rem; line-height:1.25 }
+  .opening-small { margin:2px 0 4px; font-size:.66rem; letter-spacing:.2em }
+  .opening-guest { margin-bottom:2px; font-size:.7rem }
+  .opening-mandala { width:310px; height:310px }
+  .mandala-one { left:-190px; bottom:-170px }
+  .mandala-two { right:-190px; top:-170px }
+
+  /* The scene can never be wider than its parent. This fixes the right-side drift. */
+  .lux-envelope-scene {
+    width:min(100%,420px);
+    height:clamp(350px,96vw,420px);
+    margin:0 auto;
+  }
+  .lux-envelope {
+    left:50%;
+    width:min(390px,calc(100% - 12px));
+    max-width:100%;
+    bottom:30px;
+  }
+  .lux-letter {
+    width:min(320px,76vw);
+    height:288px;
+    bottom:44px;
+    padding:28px 20px 23px;
+    --letter-start-y:108px;
+    --letter-end-y:-82px;
+  }
+  .lux-letter-frame { inset:12px }
+  .lux-letter-frame:before,.lux-letter-frame:after { width:48px; height:48px }
+  .lux-letter-lotus { width:36px; margin-bottom:5px }
+  .lux-letter p { font-size:.62rem; letter-spacing:.16em }
+  .lux-letter h1 { margin:13px 0 9px; font-size:2.55rem; line-height:.76 }
+  .lux-letter-rule { width:110px; margin:11px auto 10px }
+  .lux-letter strong { font-size:.7rem; letter-spacing:.18em }
+  .lux-letter small { margin-top:5px; font-size:.61rem; letter-spacing:.14em }
+  .lux-seal { bottom:103px; width:70px; height:70px }
+  .lux-light-rays { width:min(360px,90vw); height:300px }
+  .lux-aura { width:76% }
+
+  /* Hero */
+  .hero { min-height:100svh }
+  .hero-image { object-position:center 38%; transform:scale(1.015) }
+  .nav {
+    width:calc(100% - 30px);
+    padding:max(17px,env(safe-area-inset-top)) 0 16px;
+  }
+  .nav-mark { font-size:1.45rem }
+  .nav-links { display:none }
+  .hero-content {
+    width:calc(100% - 28px);
+    padding:72px 0 78px;
+  }
+  .hero-lotus { width:52px; margin-bottom:15px }
+  .hero-kicker { margin-bottom:16px; font-size:.68rem; letter-spacing:.18em; line-height:1.55 }
+  .hero h1 { font-size:clamp(4.15rem,21vw,6.25rem); line-height:.78 }
+  .hero h1 span { margin:.11em 0 .06em }
+  .hero-rule { gap:10px; margin-top:25px }
+  .hero-rule i { width:42px }
+  .hero-rule b { font-size:.72rem; letter-spacing:.16em }
+  .guest-ribbon { max-width:92%; margin-top:20px; padding:8px 14px; font-size:.78rem }
+  .scroll-cue { bottom:max(18px,calc(env(safe-area-inset-bottom) + 10px)); font-size:.58rem }
+  .hero-butterfly { width:38px; height:28px }
+
+  /* Story */
+  .intro-section { gap:34px }
+  .intro-photo { width:min(82vw,360px) }
+  .photo-flower { font-size:2rem }
+  .flower-one { left:-10px }
+  .flower-two { right:-9px }
+  .intro-copy h2 { margin-bottom:18px; font-size:clamp(2.8rem,12vw,3.8rem); line-height:.98 }
+  .intro-copy p { font-size:.97rem; line-height:1.68 }
+  .signature { font-size:1.8rem!important }
+  .mini-ornament { margin:21px auto 10px }
+
+  /* Blessing */
+  .blessing-band { padding:20px 16px }
+  .blessing-inner { gap:9px }
+  .blessing-inner span { font-size:.9rem }
+  .blessing-inner p { font-size:1.12rem; line-height:1.35 }
+
+  /* Families */
+  .family-grid { gap:16px; margin-top:34px }
+  .family-card { padding:32px 23px 28px; border-radius:20px }
+  .family-symbol { right:20px; top:20px; width:46px; height:46px; font-size:1.3rem }
+  .family-card h3 { margin-bottom:18px; font-size:2.05rem }
+  .family-card dl div { grid-template-columns:72px 1fr; gap:10px; padding:9px 0 }
+  .family-card dt { font-size:.69rem; letter-spacing:.06em }
+  .family-card dd { font-size:.92rem; line-height:1.45 }
+  .family-address { margin-top:16px; font-size:.84rem; line-height:1.55 }
+  .warm-invite { margin-top:24px; padding:20px 18px }
+  .warm-invite p { font-size:1.12rem }
+
+  /* Countdown */
+  .countdown-section {
+    width:calc(100% - 20px);
+    margin:8px auto 28px;
+    padding:54px 13px 48px;
+    border-radius:22px;
+  }
+  .countdown-section:before { inset:9px; border-radius:16px }
+  .countdown-ornament { width:46px }
+  .countdown-section h2 { font-size:clamp(2.55rem,11vw,3.6rem); line-height:1 }
+  .countdown { grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; margin-top:27px }
+  .time-box { min-width:0; padding:14px 2px; border-radius:11px; backdrop-filter:blur(3px) }
+  .time-box strong { font-size:clamp(1.9rem,9vw,2.7rem) }
+  .time-box span { margin-top:5px; font-size:.52rem; letter-spacing:.08em }
+
+  /* Events */
+  .events-section { width:calc(100% - 28px) }
+  .events-intro { gap:26px; margin-bottom:34px }
+  .events-photo {
+    width:100%;
+    max-width:560px;
+    border-width:5px;
+    border-radius:22px;
+  }
+  .events-photo:after { inset:9px; border-radius:15px }
+  .events-decoration { margin-top:18px }
+  .event-grid { grid-template-columns:1fr; gap:16px; margin-top:32px }
+  .event-card { padding:32px 22px 26px; border-radius:20px }
+  .event-icon { width:52px; height:52px }
+  .event-icon svg { width:30px; height:30px }
+  .event-card h3 { font-size:2.35rem }
+  .event-date { margin-top:13px }
+  .schedule { margin:20px 0 18px }
+  .schedule-row { display:flex; align-items:flex-start; gap:12px; padding:11px 0 }
+  .schedule-row strong { max-width:58%; text-align:right }
+  .venue-block { padding:15px }
+  .venue-block p { font-size:.8rem }
+  .event-actions { display:grid; grid-template-columns:1fr; gap:9px }
+  .event-actions .btn { width:100%; min-height:48px }
+
+  /* Gallery */
+  .gallery-section { padding:10px 0 62px }
+  .gallery-heading { padding-bottom:26px }
+  .gallery { width:calc(100% - 18px); gap:8px }
+  .gallery-six {
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:220px 165px 190px minmax(250px,68vw);
+  }
+  .gallery button { border-radius:12px }
+  .gallery button:first-child { grid-column:1/span 2; grid-row:1 }
+  .gallery button:nth-child(2) { grid-column:1; grid-row:2 }
+  .gallery button:nth-child(3) { grid-column:2; grid-row:2 }
+  .gallery button:nth-child(4) { grid-column:1/span 2; grid-row:3 }
+  .gallery button:nth-child(5) { grid-column:1; grid-row:4 }
+  .gallery button:nth-child(6) { grid-column:2; grid-row:4 }
+
+  /* RSVP */
+  .rsvp-section { padding-top:60px; padding-bottom:72px }
+  .rsvp-card { padding:38px 18px 30px; border-radius:22px }
+  .rsvp-card h2 { font-size:clamp(2.55rem,11vw,3.65rem) }
+  .rsvp-card>p { font-size:.94rem; line-height:1.6 }
+  #rsvpForm { margin-top:25px }
+  #rsvpForm input,#rsvpForm textarea { min-height:48px; padding:12px; font-size:16px }
+  #rsvpForm textarea { min-height:100px }
+  #rsvpForm fieldset { margin:17px 0 }
+  .attendance-choice,.rsvp-buttons { grid-template-columns:1fr }
+  .attendance-choice span,.event-check>span { min-height:48px }
+  .event-checks { grid-template-columns:1fr }
+  .rsvp-submit,.rsvp-copy { min-height:49px }
+  .rsvp-note { font-size:.73rem!important; line-height:1.5 }
+
+  /* Footer / floating controls */
+  footer { padding:46px 18px max(46px,calc(env(safe-area-inset-bottom) + 28px)) }
+  footer strong { font-size:1.85rem }
+  footer span { font-size:.68rem; letter-spacing:.09em }
+  .music-btn {
+    right:max(14px,env(safe-area-inset-right));
+    bottom:max(14px,calc(env(safe-area-inset-bottom) + 10px));
+    width:48px; height:48px;
+  }
+  .lightbox { padding:16px }
+  .lightbox img { max-width:96vw; max-height:82dvh }
+  .lightbox-close {
+    top:max(12px,env(safe-area-inset-top));
+    right:max(14px,env(safe-area-inset-right));
+    width:44px; height:44px;
+  }
+
+  /* Keep the left wedding rail decorative, not intrusive. */
+  .wedding-scroll-rail { left:1px; width:22px; opacity:.65 }
+  .rail-lotus,.rail-diya { width:18px; height:18px }
+  .rail-lotus svg,.rail-diya svg { width:11px; height:11px }
+  .rail-emblem { left:-2px; width:30px; height:30px }
+  .rail-emblem svg { width:16px; height:16px }
+
+  /* Touch devices should not jump because of desktop hover effects. */
+  .btn:hover,.envelope:hover,.gallery button:hover img,.events-photo:hover img,.rsvp-submit:hover {
+    transform:none; box-shadow:inherit; filter:none;
+  }
+}
+
+@media (max-width: 430px) {
+  .section { width:calc(100% - 24px); padding:58px 0 }
+  .lux-opening-stage { max-width:100% }
+  .sacred-line { font-size:.96rem }
+  .lux-envelope-scene { width:calc(100vw - 24px); max-width:390px; height:clamp(340px,95vw,390px) }
+  .lux-envelope { width:calc(100% - 8px); bottom:27px }
+  .lux-letter {
+    width:min(285px,74vw);
+    height:266px;
+    bottom:42px;
+    padding:25px 17px 20px;
+    --letter-start-y:102px;
+    --letter-end-y:-72px;
+  }
+  .lux-letter h1 { font-size:2.32rem }
+  .lux-letter-lotus { width:33px }
+  .lux-seal { bottom:97px; width:66px; height:66px }
+  .hero-content { width:calc(100% - 24px); padding-top:68px }
+  .hero h1 { font-size:clamp(3.95rem,20.5vw,5.65rem) }
+  .hero-kicker { font-size:.64rem; letter-spacing:.16em }
+  .hero-rule i { width:34px }
+  .family-card dl div { grid-template-columns:64px 1fr; gap:8px }
+  .countdown-section { width:calc(100% - 16px) }
+  .time-box span { font-size:.49rem }
+  .gallery-six { grid-template-rows:205px 150px 175px minmax(235px,70vw) }
+  .wedding-scroll-rail { transform:scale(.9); transform-origin:left center }
+}
+
+@media (max-width: 360px) {
+  .opening { padding-left:8px; padding-right:8px }
+  .lux-envelope-scene { width:calc(100vw - 16px) }
+  .hero h1 { font-size:3.8rem }
+  .hero-rule b { font-size:.65rem }
+  .family-card { padding-left:19px; padding-right:19px }
+  .family-card dl div { display:block }
+  .family-card dt { margin-bottom:2px }
+  .event-card { padding-left:19px; padding-right:19px }
+  .countdown { gap:4px }
+  .time-box strong { font-size:1.8rem }
+  .gallery-six { grid-template-rows:190px 140px 165px 235px }
+  .wedding-scroll-rail { display:none }
+}
+
+/* Short phone screens: keep the whole opening comfortably visible. */
+@media (max-width: 760px) and (max-height: 720px) {
+  .sacred-line { margin-bottom:.35rem; font-size:.93rem }
+  .opening-small { font-size:.61rem }
+  .lux-envelope-scene { height:330px; transform:scale(.9); transform-origin:top center; margin-bottom:-28px }
+  .opening-mandala { opacity:.11 }
+}
+
+/* Landscape phones/tablets */
+@media (max-height: 520px) and (orientation:landscape) {
+  .opening { overflow:auto; place-content:start center; padding-top:12px }
+  .lux-opening-stage { max-width:600px }
+  .sacred-line,.opening-small { display:none }
+  .lux-envelope-scene { height:310px; width:min(70vw,470px) }
+  .lux-envelope { width:min(430px,94%) }
+  .hero { min-height:620px }
+}
+
+/* iOS form zoom / tap quality */
+@supports (-webkit-touch-callout:none) {
+  @media (max-width:760px) {
+    input,textarea,select { font-size:16px!important }
+    button,a { -webkit-tap-highlight-color:rgba(199,155,61,.16) }
+  }
+}
