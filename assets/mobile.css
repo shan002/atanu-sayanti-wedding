@@ -76,7 +76,7 @@
   .hero-rule b { font-size:.72rem; letter-spacing:.16em }
   .guest-ribbon { max-width:92%; margin-top:20px; padding:8px 14px; font-size:.78rem }
   .scroll-cue { bottom:max(18px,calc(env(safe-area-inset-bottom) + 10px)); font-size:.58rem }
-  .hero-butterfly { width:38px; height:28px; margin-left:-19px; margin-top:-27px }
+  .hero-butterfly { width:38px; height:28px; margin-left:-19px; margin-top:-14px }
 
   /* Story */
   .intro-section { gap:34px }

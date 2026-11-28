@@ -452,7 +452,7 @@ body:not(.invitation-open) .scroll-progress{opacity:0}
 .reveal-petal{position:absolute;z-index:6;top:-30px;left:var(--x);width:var(--size);height:calc(var(--size)*1.35);border-radius:70% 20% 70% 30%;opacity:.88;animation:petalFall 6.2s linear var(--delay) forwards}
 
 /* Detailed SVG butterfly */
-.hero-butterfly{position:absolute;z-index:7;left:50%;top:0;width:44px;height:32px;margin-left:-22px;margin-top:-30px;opacity:0;pointer-events:none;font-size:initial;font-style:normal;line-height:1;filter:drop-shadow(0 7px 9px rgba(30,4,10,.28))}
+.hero-butterfly{position:absolute;z-index:7;left:50%;top:50%;width:44px;height:32px;margin-left:-22px;margin-top:-16px;opacity:0;pointer-events:none;font-size:initial;font-style:normal;line-height:1;filter:drop-shadow(0 7px 9px rgba(30,4,10,.28))}
 .hero-butterfly svg{display:block;width:100%;height:100%;overflow:visible}
 .butterfly-wing{transform-box:fill-box}
 .butterfly-left-wing{transform-origin:right center;animation:butterflyLeftFlap .30s ease-in-out infinite alternate}
