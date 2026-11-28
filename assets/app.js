@@ -258,40 +258,6 @@
     <header class="hero" id="home">
       <div class="hero-media" aria-hidden="true">${image("hero-1600.jpg", "hero.jpg", "", "hero-image", "eager")}</div>
       <div class="hero-pattern" aria-hidden="true"></div>
-      <div class="hero-butterfly" aria-hidden="true">
-        <svg viewBox="0 0 128 86" role="presentation">
-          <defs>
-            <linearGradient id="butterflyWine" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#fff2cf"/>
-              <stop offset=".42" stop-color="#d9ad58"/>
-              <stop offset="1" stop-color="#7d2437"/>
-            </linearGradient>
-            <linearGradient id="butterflyGold" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#fff7dc"/>
-              <stop offset="1" stop-color="#d2a04a"/>
-            </linearGradient>
-          </defs>
-          <g class="butterfly-wing butterfly-left-wing">
-            <path d="M60 40C48 16 27 4 12 13 1 20 8 40 27 49 37 54 48 51 60 44Z" fill="url(#butterflyWine)" stroke="#f1d696" stroke-width="2"/>
-            <path d="M58 46C43 47 26 51 22 64c-3 10 9 15 21 10 10-4 16-14 19-25Z" fill="#9a4350" stroke="#eacb83" stroke-width="1.7"/>
-            <path d="M18 19c12 6 19 15 23 27M26 14c10 9 17 19 20 33" fill="none" stroke="#6b2332" stroke-width="1.4" opacity=".7"/>
-            <circle cx="25" cy="28" r="4.5" fill="#fff0bd" opacity=".9"/>
-            <circle cx="35" cy="41" r="3" fill="#f6d276" opacity=".85"/>
-            <path d="M30 59c7 2 13 0 18-6" fill="none" stroke="#f2d79b" stroke-width="1.4"/>
-          </g>
-          <g class="butterfly-wing butterfly-right-wing">
-            <path d="M68 40c12-24 33-36 48-27 11 7 4 27-15 36-10 5-21 2-33-5Z" fill="url(#butterflyWine)" stroke="#f1d696" stroke-width="2"/>
-            <path d="M70 46c15 1 32 5 36 18 3 10-9 15-21 10-10-4-16-14-19-25Z" fill="#9a4350" stroke="#eacb83" stroke-width="1.7"/>
-            <path d="M110 19c-12 6-19 15-23 27M102 14c-10 9-17 19-20 33" fill="none" stroke="#6b2332" stroke-width="1.4" opacity=".7"/>
-            <circle cx="103" cy="28" r="4.5" fill="#fff0bd" opacity=".9"/>
-            <circle cx="93" cy="41" r="3" fill="#f6d276" opacity=".85"/>
-            <path d="M98 59c-7 2-13 0-18-6" fill="none" stroke="#f2d79b" stroke-width="1.4"/>
-          </g>
-          <path d="M64 31c-4 5-5 14-3 24 1 8 3 15 3 22 0-7 2-14 3-22 2-10 1-19-3-24Z" fill="#5f1626"/>
-          <ellipse cx="64" cy="33" rx="4" ry="5" fill="url(#butterflyGold)"/>
-          <path d="M62 29c-8-10-14-10-18-6M66 29c8-10 14-10 18-6" fill="none" stroke="#e6c87e" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-      </div>
       <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
       <nav class="nav">
         <a class="nav-mark" href="#home">${cfg.couple.initials}</a>
@@ -300,7 +266,40 @@
       <div class="hero-content reveal is-visible">
         <div class="hero-lotus">${icons.lotus}</div>
         <p class="hero-kicker">With the blessings of our families</p>
-        <h1>${cfg.couple.shortGroom}<span>&</span>${cfg.couple.shortBride}</h1>
+        <h1>${cfg.couple.shortGroom}<span>&<b class="hero-butterfly" aria-hidden="true">
+          <svg viewBox="0 0 128 86" role="presentation">
+            <defs>
+              <linearGradient id="butterflyWine" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff2cf"/>
+                <stop offset=".42" stop-color="#d9ad58"/>
+                <stop offset="1" stop-color="#7d2437"/>
+              </linearGradient>
+              <linearGradient id="butterflyGold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff7dc"/>
+                <stop offset="1" stop-color="#d2a04a"/>
+              </linearGradient>
+            </defs>
+            <g class="butterfly-wing butterfly-left-wing">
+              <path d="M60 40C48 16 27 4 12 13 1 20 8 40 27 49 37 54 48 51 60 44Z" fill="url(#butterflyWine)" stroke="#f1d696" stroke-width="2"/>
+              <path d="M58 46C43 47 26 51 22 64c-3 10 9 15 21 10 10-4 16-14 19-25Z" fill="#9a4350" stroke="#eacb83" stroke-width="1.7"/>
+              <path d="M18 19c12 6 19 15 23 27M26 14c10 9 17 19 20 33" fill="none" stroke="#6b2332" stroke-width="1.4" opacity=".7"/>
+              <circle cx="25" cy="28" r="4.5" fill="#fff0bd" opacity=".9"/>
+              <circle cx="35" cy="41" r="3" fill="#f6d276" opacity=".85"/>
+              <path d="M30 59c7 2 13 0 18-6" fill="none" stroke="#f2d79b" stroke-width="1.4"/>
+            </g>
+            <g class="butterfly-wing butterfly-right-wing">
+              <path d="M68 40c12-24 33-36 48-27 11 7 4 27-15 36-10 5-21 2-33-5Z" fill="url(#butterflyWine)" stroke="#f1d696" stroke-width="2"/>
+              <path d="M70 46c15 1 32 5 36 18 3 10-9 15-21 10-10-4-16-14-19-25Z" fill="#9a4350" stroke="#eacb83" stroke-width="1.7"/>
+              <path d="M110 19c-12 6-19 15-23 27M102 14c-10 9-17 19-20 33" fill="none" stroke="#6b2332" stroke-width="1.4" opacity=".7"/>
+              <circle cx="103" cy="28" r="4.5" fill="#fff0bd" opacity=".9"/>
+              <circle cx="93" cy="41" r="3" fill="#f6d276" opacity=".85"/>
+              <path d="M98 59c-7 2-13 0-18-6" fill="none" stroke="#f2d79b" stroke-width="1.4"/>
+            </g>
+            <path d="M64 31c-4 5-5 14-3 24 1 8 3 15 3 22 0-7 2-14 3-22 2-10 1-19-3-24Z" fill="#5f1626"/>
+            <ellipse cx="64" cy="33" rx="4" ry="5" fill="url(#butterflyGold)"/>
+            <path d="M62 29c-8-10-14-10-18-6M66 29c8-10 14-10 18-6" fill="none" stroke="#e6c87e" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </b></span>${cfg.couple.shortBride}</h1>
         <div class="hero-rule"><i></i><b>13 • 12 • 2026</b><i></i></div>
         ${guestGreeting}
       </div>
@@ -442,79 +441,70 @@
     const hero = document.getElementById("home");
     if (!butterfly || !hero) return;
 
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const targetX = hero.clientWidth * 0.5;
-    const targetY = hero.clientHeight * (innerWidth <= 430 ? 0.60 : 0.59);
+    butterfly.getAnimations().forEach(animation => animation.cancel());
+    butterfly.style.opacity = "0";
+    butterfly.style.transform = "translate3d(0,0,0)";
 
-    if (reduceMotion) {
-      butterfly.style.left = `${targetX}px`;
-      butterfly.style.top = `${targetY}px`;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
       butterfly.style.opacity = "1";
-      butterfly.style.transform = "translate(-50%,-50%)";
       return;
     }
 
     const rand = (min, max) => min + Math.random() * (max - min);
-    const startY = hero.clientHeight * rand(0.56, 0.69);
-    const fractions = [0, .13, .29, .47, .66, .82, .93, 1];
-    const points = fractions.map((f, i) => {
-      if (i === 0) return {x: -70, y: startY};
-      if (i === fractions.length - 1) return {x: targetX, y: targetY};
-      const baseY = startY + (targetY - startY) * f;
-      const spread = hero.clientHeight * (0.12 * (1 - f) + 0.018);
-      return {
-        x: targetX * f + rand(-24, 24),
-        y: Math.max(40, Math.min(hero.clientHeight - 40, baseY + rand(-spread, spread)))
-      };
-    });
+    const butterflyRect = butterfly.getBoundingClientRect();
+    const heroRect = hero.getBoundingClientRect();
+    const startX = heroRect.left - butterflyRect.left - butterflyRect.width - rand(30, 90);
+    const startY = heroRect.top + heroRect.height * rand(.48, .67) - butterflyRect.top;
+
+    const points = [
+      {x:startX, y:startY},
+      {x:startX * .72, y:startY + rand(-80, 45)},
+      {x:startX * .48, y:startY + rand(-35, 95)},
+      {x:startX * .27, y:startY + rand(-110, 35)},
+      {x:startX * .12, y:rand(-55, 50)},
+      {x:rand(-28, 20), y:rand(-28, 22)},
+      {x:0, y:0}
+    ];
 
     const catmull = (p0, p1, p2, p3, t) => {
       const t2 = t * t, t3 = t2 * t;
       return {
-        x: .5 * ((2*p1.x) + (-p0.x+p2.x)*t + (2*p0.x-5*p1.x+4*p2.x-p3.x)*t2 + (-p0.x+3*p1.x-3*p2.x+p3.x)*t3),
-        y: .5 * ((2*p1.y) + (-p0.y+p2.y)*t + (2*p0.y-5*p1.y+4*p2.y-p3.y)*t2 + (-p0.y+3*p1.y-3*p2.y+p3.y)*t3)
+        x:.5*((2*p1.x)+(-p0.x+p2.x)*t+(2*p0.x-5*p1.x+4*p2.x-p3.x)*t2+(-p0.x+3*p1.x-3*p2.x+p3.x)*t3),
+        y:.5*((2*p1.y)+(-p0.y+p2.y)*t+(2*p0.y-5*p1.y+4*p2.y-p3.y)*t2+(-p0.y+3*p1.y-3*p2.y+p3.y)*t3)
       };
     };
 
     const sample = progress => {
       const count = points.length - 1;
-      const scaled = Math.min(progress, .999999) * count;
+      if (progress >= 1) return points[count];
+      const scaled = progress * count;
       const i = Math.floor(scaled);
       const t = scaled - i;
       return catmull(
-        points[Math.max(0, i - 1)],
-        points[i],
-        points[Math.min(points.length - 1, i + 1)],
-        points[Math.min(points.length - 1, i + 2)],
-        t
+        points[Math.max(0,i-1)], points[i],
+        points[Math.min(count,i+1)], points[Math.min(count,i+2)], t
       );
     };
 
-    const duration = rand(4300, 5600);
-    const start = performance.now();
-    butterfly.style.opacity = "0";
+    const duration = rand(4300, 5500);
+    const started = performance.now();
 
     function frame(now) {
-      const raw = Math.min(1, (now - start) / duration);
-      const progress = 1 - Math.pow(1 - raw, 1.45);
+      const raw = Math.min(1, (now - started) / duration);
+      const progress = 1 - Math.pow(1 - raw, 1.35);
       const pos = sample(progress);
-      const ahead = sample(Math.min(1, progress + .006));
+      const ahead = sample(Math.min(1, progress + .008));
       const angle = Math.atan2(ahead.y - pos.y, ahead.x - pos.x) * 180 / Math.PI;
-      const settle = Math.max(0, (progress - .82) / .18);
-      const scale = .86 + .14 * Math.min(1, progress / .55);
+      const settle = Math.max(0, (progress - .84) / .16);
+      const scale = .86 + .14 * Math.min(1, progress / .6);
 
-      butterfly.style.left = `${pos.x}px`;
-      butterfly.style.top = `${pos.y}px`;
-      butterfly.style.opacity = String(Math.min(1, raw * 9));
-      butterfly.style.transform = `translate(-50%,-50%) rotate(${angle * (1 - settle)}deg) scale(${scale})`;
+      butterfly.style.opacity = String(Math.min(1, raw * 8));
+      butterfly.style.transform = `translate3d(${pos.x}px,${pos.y}px,0) rotate(${angle * (1 - settle)}deg) scale(${scale})`;
 
-      if (raw < 1) {
-        requestAnimationFrame(frame);
-      } else {
-        butterfly.style.left = `${targetX}px`;
-        butterfly.style.top = `${targetY}px`;
+      if (raw < 1) requestAnimationFrame(frame);
+      else {
         butterfly.style.opacity = "1";
-        butterfly.style.transform = "translate(-50%,-50%) rotate(0deg) scale(1)";
+        butterfly.style.transform = "translate3d(0,0,0) rotate(0deg) scale(1)";
       }
     }
 
